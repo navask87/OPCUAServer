@@ -1,0 +1,88 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+  <PropertyGroup>
+    <TargetFramework>net48</TargetFramework>
+    <AssemblyName>OPCUAServer</AssemblyName>
+    <RootNamespace>OPCUAServer.SE</RootNamespace>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <UseWindowsForms>true</UseWindowsForms>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+
+    <OutputType>Exe</OutputType>
+    <OutputPath>..\..\..\bin\$(Configuration)\</OutputPath>
+    <IntermediateOutputPath>..\..\..\obj\$(Configuration)\$(MSBuildProjectName)\</IntermediateOutputPath>
+    <ApplicationIcon>Resources\app.ico</ApplicationIcon>
+    <FileAlignment>512</FileAlignment>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <EnableDefaultEmbeddedResourceItems>false</EnableDefaultEmbeddedResourceItems>
+    <BaseOutputPath>bin\</BaseOutputPath>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Common\ModelWithAlarms\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Common\4ovpkbx3.lxw~" />
+    <None Remove="Common\buildingautomation.xml" />
+    <None Remove="Common\License\License.lic" />
+    <None Remove="Common\Model\BAGeneratedFiles.txt" />
+    <None Remove="Common\Model\buildingautomation.tt2pro" />
+    <None Remove="Common\Model\buildingautomation.ua" />
+    <None Remove="Common\Model\buildingautomation.xml" />
+    <None Remove="OPCUAServer.csproj.DotSettings" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <PackageReference Include="UnifiedAutomation.UaBase" Version="4.2.1" />
+    <PackageReference Include="UnifiedAutomation.UaBase.Windows" Version="4.2.1" />
+    <PackageReference Include="UnifiedAutomation.UaServer" Version="4.2.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="Common\Model\BAIdentifiers.cs" />
+    <Compile Include="Constants\OCUAServerConstants.cs" />
+    <Compile Include="OPCUAServerManager.cs" />
+    <Compile Include="ControllerNodeManager.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\StringResource.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>StringResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="System\UnderlyingSystem.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Common\License\License.lic" />
+    <EmbeddedResource Include="Common\Model\buildingautomation.xml" />
+    <EmbeddedResource Include="Resources\StringResource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>StringResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="System\SystemConfiguration.xml" />
+    <Content Include="Resources\app.ico" />
+  </ItemGroup>
+  <ItemGroup>    <None Include="App.config" />
+  </ItemGroup>
+</Project>
