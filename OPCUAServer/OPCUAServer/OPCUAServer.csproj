@@ -8,8 +8,8 @@
     <PlatformTarget>AnyCPU</PlatformTarget>
 
     <OutputType>Exe</OutputType>
-    <OutputPath>..\..\..\bin\$(Configuration)\</OutputPath>
-    <IntermediateOutputPath>..\..\..\obj\$(Configuration)\$(MSBuildProjectName)\</IntermediateOutputPath>
+    <OutputPath>.\bin\$(Configuration)\</OutputPath>
+    <IntermediateOutputPath>.\obj\$(Configuration)\$(MSBuildProjectName)\</IntermediateOutputPath>
     <ApplicationIcon>Resources\app.ico</ApplicationIcon>
     <FileAlignment>512</FileAlignment>
     <ErrorReport>prompt</ErrorReport>
